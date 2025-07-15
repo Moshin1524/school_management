@@ -1,0 +1,30 @@
+<odoo>
+    <!-- Root of  Menu -->
+    <menuitem id="school_menu_root" name="School"/>
+
+    <!-- Students under School-->
+    <menuitem id="menu_school_students" name="Students" parent="school_menu_root"/>
+    <menuitem id="menu_school_student_action" name="Manage Students"
+              parent="menu_school_students"
+              action="action_school_student"/>
+
+    <!-- Teachers under School-->
+    <menuitem id="menu_school_teachers" name="Teachers" parent="school_menu_root"/>
+    <menuitem id="menu_school_teacher_action" name="Manage Teachers"
+              parent="menu_school_teachers"
+              action="action_school_teacher"/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_school_configuration" name="Configuration" parent="school_menu_root"/>
+
+    <!-- Classes under Configuration -->
+    <menuitem id="menu_school_class" name="Classes"
+              parent="menu_school_configuration"
+              action="action_school_class"/>
+
+    <!-- Sections under Configuration -->
+    <menuitem id="menu_school_section" name="Sections"
+              parent="menu_school_configuration"
+              action="action_school_section"/>
+
+</odoo>
