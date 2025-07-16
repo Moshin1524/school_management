@@ -11,7 +11,6 @@ class SchoolSection(models.Model):
     _description = 'School Section'
 
     name = fields.Char(string='Section Name', required=True)
-    class_id = fields.Many2one('school.class', string='Class')
 
 class SchoolInstitution(models.Model):
     _name = 'school.institution'

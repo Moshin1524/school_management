@@ -35,7 +35,6 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="class_id"/>
                     </group>
                 </sheet>
             </form>
@@ -49,7 +48,6 @@
         <field name="arch" type="xml">
             <list string="Sections">
                 <field name="name"/>
-                <field name="class_id"/>
             </list>
         </field>
     </record>
@@ -69,7 +67,7 @@
         </field>
     </record>
 
-    <!-- Section List -->
+    <!-- Instruction List -->
     <record id="view_school_institution_list" model="ir.ui.view">
         <field name="name">school.institution.list</field>
         <field name="model">school.institution</field>

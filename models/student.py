@@ -15,12 +15,10 @@ class Student(models.Model):
     date_of_birth = fields.Date(string='Date of Birth')
     email = fields.Char(string='Email')
     phone = fields.Char(string='Phone')
-    student_class = fields.Char(string='Class')
-    section = fields.Selection([
-        ('a', 'Section A'),
-        ('b', 'Section B'),
-        ('c', 'Section C'),
-    ], string='Section')
+    # joining relation operations here
+    class_id = fields.Many2one('school.class', string='Class')
+    section_id = fields.Many2one('school.section', string='Section')
+    institution_id = fields.Many2one('school.institution', string='Institution')
     address = fields.Text(string='Address')
     student_image = fields.Binary(string="Photo")
     active = fields.Boolean(string='Active', default=True)
