@@ -7,7 +7,6 @@
             <search string="Search Students">
                 <field name="student_class"/>
                 <field name="section"/>
-                <field name="roll_number" string="Roll Number"/>
             </search>
         </field>
     </record>
@@ -28,6 +27,7 @@
                         <field name="student_class"/>
                         <field name="section"/>
                         <field name="address"/>
+                        <field name="student_image" widget="image" class="oe_avatar" options="{'preview_image': 'student_image'}"/>
                     </group>
                 </sheet>
             </form>
@@ -39,6 +39,7 @@
         <field name="model">school.student</field>
         <field name="arch" type="xml">
             <list string="Students">
+                <field name="student_image" widget="image" options="{'preview_image': 'student_image'}"/>
                 <field name="name"/>
                 <field name="roll_number"/>
                 <field name="age"/>

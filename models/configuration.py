@@ -12,3 +12,9 @@ class SchoolSection(models.Model):
 
     name = fields.Char(string='Section Name', required=True)
     class_id = fields.Many2one('school.class', string='Class')
+
+class SchoolInstitution(models.Model):
+    _name = 'school.institution'
+    _description = 'School Institution'
+
+    name = fields.Char(string='Institution Name', required=True)

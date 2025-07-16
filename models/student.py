@@ -22,4 +22,5 @@ class Student(models.Model):
         ('c', 'Section C'),
     ], string='Section')
     address = fields.Text(string='Address')
+    student_image = fields.Binary(string="Photo")
     active = fields.Boolean(string='Active', default=True)

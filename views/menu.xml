@@ -27,4 +27,9 @@
               parent="menu_school_configuration"
               action="action_school_section"/>
 
+    <!-- Institution under Configuration -->
+    <menuitem id="menu_school_institution" name="Institution Name"
+              parent="menu_school_configuration"
+              action="action_school_institution"/>
+
 </odoo>

@@ -3,6 +3,7 @@ access_school_student,access_school_student,model_school_student,,1,1,1,1
 access_school_teacher,access_school_teacher,model_school_teacher,,1,1,1,1
 access_school_class,access_school_class,model_school_class,,1,1,1,1
 access_school_section,access_school_section,model_school_section,,1,1,1,1
+access_school_institution,access_school_institution,model_school_institution,,1,1,1,1
 
 
 

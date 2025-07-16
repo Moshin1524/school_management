@@ -15,5 +15,6 @@ class Teacher(models.Model):
         ('female', 'Female'),
         ('other', 'Other')
     ], string='Gender')
+    teacher_image = fields.Binary(string="Photo")
     active = fields.Boolean(string='Active', default=True)
 
