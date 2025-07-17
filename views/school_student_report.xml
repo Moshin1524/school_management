@@ -1,0 +1,55 @@
+<odoo>
+    <!--  template for the report and process the report  -->
+  <template id="report_school_student_document">
+    <t t-call="web.basic_layout">
+      <div class="page">
+        <h2>Student Information</h2>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Full Name</th>
+              <th>Roll Number</th>
+              <th>Class</th>
+              <th>Section</th>
+              <th>Institution</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="docs" t-as="student">
+              <tr>
+                <td>
+                  <t t-if="student.student_image">
+                    <img t-att-src="'data:image/png;base64,%s' % student.student_image.decode('utf-8')" width="50"/>
+                  </t>
+                </td>
+                <td><t t-esc="student.name"/></td>
+                <td><t t-esc="student.roll_number"/></td>
+                <td><t t-esc="student.class_id.name"/></td>
+                <td><t t-esc="student.section_id.name"/></td>
+                <td><t t-esc="student.institution_id.name"/></td>
+                <td><t t-esc="student.age"/></td>
+                <td><t t-esc="student.gender"/></td>
+                <td><t t-esc="student.email"/></td>
+                <td><t t-esc="student.phone"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+      </div>
+    </t>
+  </template>
+<!--  action working against the report  -->
+    <record id="action_report_school_student" model="ir.actions.report">
+        <field name="name">Print</field>
+        <field name="model">school.student</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">student_information.report_school_student_document</field>
+        <field name="report_file">student_information.report_school_student_document</field>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -10,6 +10,8 @@
         'views/teacher_views.xml',
         'views/configuration_views.xml',
         'views/menu.xml',
+        'views/school_student_report.xml',
+        'views/school_teacher_report.xml',
     ],
     'installable': True,
     'application': True,

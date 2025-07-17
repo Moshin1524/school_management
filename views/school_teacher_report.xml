@@ -1,0 +1,67 @@
+<odoo>
+  <!-- template for the report and process the report -->
+  <template id="report_school_teacher_document">
+
+    <t t-call="web.basic_layout">
+
+      <t t-set="header">
+        <div class="page">
+          <h2 style="text-align: center; font-size: 20px;">ABC School</h2>
+        </div>
+      </t>
+
+      <!--   Body   -->
+      <div class="page">
+        <h2>Teacher Information</h2>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Full Name</th>
+              <th>Employee ID</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Hire Date</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="docs" t-as="teacher">
+              <tr>
+                <td>
+                  <t t-if="teacher.teacher_image">
+                    <img t-att-src="'data:image/png;base64,%s' % teacher.teacher_image.decode('utf-8')" width="50"/>
+                  </t>
+                </td>
+                <td><t t-esc="teacher.name"/></td>
+                <td><t t-esc="teacher.employee_id"/></td>
+                <td><t t-esc="teacher.phone"/></td>
+                <td><t t-esc="teacher.email"/></td>
+                <td><t t-esc="teacher.address"/></td>
+                <td><t t-esc="teacher.hire_date"/></td>
+                <td><t t-esc="teacher.gender"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Footer -->
+      <t t-set="footer">
+            <h2 style="text-align: center; font-size: 20px;">ABC School</h2>
+      </t>
+    </t>
+  </template>
+
+  <!-- action working against the report -->
+  <record id="action_report_school_teacher" model="ir.actions.report">
+    <field name="name">Print</field>
+    <field name="model">school.teacher</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">student_information.report_school_teacher_document</field>
+    <field name="report_file">student_information.report_school_teacher_document</field>
+    <field name="binding_model_id" ref="model_school_teacher"/>
+    <field name="binding_type">report</field>
+  </record>
+</odoo>
