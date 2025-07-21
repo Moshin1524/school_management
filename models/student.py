@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class Student(models.Model):
     _name = 'school.student'
@@ -22,3 +22,17 @@ class Student(models.Model):
     address = fields.Text(string='Address')
     student_image = fields.Binary(string="Photo")
     active = fields.Boolean(string='Active', default=True)
+
+    # Computed field to get total student count
+    total_students = fields.Integer(string='Total Students', compute='_compute_total_students')
+
+    @api.depends()
+    def _compute_total_students(self):
+        # This method returns the total number of students in the database
+        count = self.env['school.student'].search_count([])
+        for record in self:
+            record.total_students = count
+
+    @api.model
+    def get_student_count(self):
+        return self.search_count([])

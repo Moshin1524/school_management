@@ -2,10 +2,7 @@
     <!-- Root of  Menu -->
     <menuitem id="school_menu_root" name="School" sequence="20"/>
 
-<!--    <menuitem id="menu_school_dashboard" name="Dashboard" parent="school_menu_root" sequence="1"/>-->
-<!--    <menuitem id="menu_school_dashboard_action" name="Dashboard"-->
-<!--          parent="menu_school_dashboard"-->
-<!--          action="action_school_dashboard" sequence="1"/>-->
+    <!-- Add to Menu -->
 
 
     <!-- Students under School-->

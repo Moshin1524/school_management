@@ -1,0 +1,11 @@
+
+  <template id="DashboardTemplate" name="School Dashboard">
+    <t t-name="DashboardTemplate">
+      <div style="padding:2em;">
+          <h1>School Dashboard</h1>
+          <div>Total Students: <t t-esc="state.studentCount"/></div>
+          <div>Total Teachers: <t t-esc="state.teacherCount"/></div>
+      </div>
+    </t>
+  </template>
+
