@@ -8,7 +8,8 @@
         <field name="tag">school_dashboard</field>
     </record>
 
-    <!-- Link Dashboard Menu to Action -->
+
+<!--     Link Dashboard Menu to Action-->
     <menuitem id="menu_school_dashboard_action"
               name="School Dashboard"
               parent="menu_school_dashboard"
