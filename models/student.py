@@ -36,3 +36,13 @@ class Student(models.Model):
     @api.model
     def get_student_count(self):
         return self.search_count([])
+
+    @api.onchange('class_id')
+    def _onchange_class_id(self):
+        if self.class_id:
+            self.institution_id = self.class_id.institution_id
+
+    @api.onchange('section_id')
+    def _onchange_section_id(self):
+        if self.section_id:
+            self.institution_id = self.section_id.institution_id
