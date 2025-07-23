@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import UserError, ValidationError
 
 class Student(models.Model):
     _name = 'school.student'
@@ -37,12 +38,42 @@ class Student(models.Model):
     def get_student_count(self):
         return self.search_count([])
 
-    @api.onchange('class_id')
-    def _onchange_class_id(self):
-        if self.class_id:
-            self.institution_id = self.class_id.institution_id
+    @api.model
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('age') is not None and vals['age'] < 12:
+                raise UserError("❌ Age Error: Student age cannot be under 12.")
+        return super().create(vals_list)
 
-    @api.onchange('section_id')
-    def _onchange_section_id(self):
-        if self.section_id:
-            self.institution_id = self.section_id.institution_id
+    def write(self, vals):
+        if vals.get('age') is not None and vals['age'] < 12:
+            raise UserError("❌ Age Error: Student age cannot be under 12.")
+        return super().write(vals)
+
+    @api.constrains('age')
+    def _check_age(self):
+        for rec in self:
+            if rec.age is not None and rec.age < 12:
+                raise UserError("❌ Age Error: Student age cannot be under 12.")
+
+    # @api.onchange('class_id')
+    # def _onchange_class_id(self):
+    #     if self.class_id:
+    #         self.institution_id = self.class_id.institution_id
+    #
+    # @api.onchange('section_id')
+    # def _onchange_section_id(self):
+    #     if self.section_id:
+    #         self.institution_id = self.section_id.institution_id
+
+    @api.onchange('institution_id')
+    def _onchange_institution_id(self):
+        domain = {}
+        if self.institution_id:
+            domain['class_id'] = [('institution_id', '=', self.institution_id.id)]
+            domain['section_id'] = [('institution_id', '=', self.institution_id.id)]
+            # Clear old selection if mismatched
+            self.class_id = False
+            self.section_id = False
+        return {'domain': domain}
+

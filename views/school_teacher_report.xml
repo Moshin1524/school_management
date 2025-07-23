@@ -51,6 +51,7 @@
               <p><strong>Email:</strong> <t t-esc="teacher.email"/></p>
               <p><strong>Address:</strong> <t t-esc="teacher.address"/></p>
               <p><strong>Hire Date:</strong> <t t-esc="teacher.hire_date"/></p>
+              <p><strong>Institution:</strong> <t t-esc="teacher.institution_id.name"/></p>
               <p><strong>Gender:</strong> <t t-esc="teacher.gender"/></p>
             </div>
           </div>

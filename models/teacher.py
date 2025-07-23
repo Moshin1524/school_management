@@ -10,6 +10,7 @@ class Teacher(models.Model):
     email = fields.Char(string='Email')
     address = fields.Text(string='Address')
     hire_date = fields.Date(string='Hire Date')
+    institution_id = fields.Many2one('school.institution', string="Institution")
     gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female'),

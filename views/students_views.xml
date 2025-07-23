@@ -29,9 +29,9 @@
                         <field name="date_of_birth"/>
                         <field name="email"/>
                         <field name="phone"/>
-                        <field name="class_id"/>
-                        <field name="section_id"/>
                         <field name="institution_id"/>
+                        <field name="class_id" domain="[('institution_id', '=', institution_id)]"/>
+                        <field name="section_id" domain="[('institution_id', '=', institution_id)]"/>
                         <field name="address"/>
                         <field name="student_image" widget="image" class="oe_avatar" options="{'preview_image': 'student_image'}"/>
                     </group>
@@ -52,9 +52,9 @@
                 <field name="age"/>
                 <field name="gender"/>
                 <field name="email"/>
+                <field name="institution_id"/>
                 <field name="class_id"/>
                 <field name="section_id"/>
-                <field name="institution_id"/>
             </list>
         </field>
     </record>
